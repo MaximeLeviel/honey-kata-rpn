@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rpn {
-    List<Integer> stack;
+    List<Double> stack;
     public Rpn() {
         stack = new ArrayList<>();
     }
 
-    public void push(int number) {
+    public void push(double number) {
         stack.add(number);
     }
 
@@ -15,7 +15,7 @@ public class Rpn {
         var tokens = input.split(" ");
         for (var token : tokens) {
             try {
-                var number = Integer.parseInt(token);
+                var number = Double.parseDouble(token);
                 push(number);
             } catch (NumberFormatException e) {
                 var a = stack.remove(stack.size() - 1);
@@ -24,6 +24,7 @@ public class Rpn {
                     case "+" -> push(a + b);
                     case "-" -> push(b - a);
                     case "*" -> push(a * b);
+                    case "/" -> push(b / a);
                 }
             }
         }
