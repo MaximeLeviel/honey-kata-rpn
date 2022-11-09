@@ -26,4 +26,12 @@ public class test {
         assert rpn.stack.size() == 1;
         assert rpn.stack.get(0) == 3;
     }
+
+    @Test
+    public void parse_add2() {
+        var rpn = new Rpn();
+        rpn.parse("1 2 + 3 +");
+        assert rpn.stack.size() == 1;
+        assert rpn.stack.get(0) == 6;
+    }
 }
