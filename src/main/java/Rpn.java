@@ -18,7 +18,13 @@ public class Rpn {
                 var a = stack.remove(stack.size() - 1);
                 var b = stack.remove(stack.size() - 1);
                 stack.add(a + b);
-            } else {
+            }
+            else if (token.equals("-")) {
+                var a = stack.remove(stack.size() - 1);
+                var b = stack.remove(stack.size() - 1);
+                stack.add(b - a);
+            }
+            else {
                 push(Integer.parseInt(token));
             }
         }
