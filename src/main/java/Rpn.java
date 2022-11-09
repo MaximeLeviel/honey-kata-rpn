@@ -14,23 +14,17 @@ public class Rpn {
     public void parse(String input) {
         var tokens = input.split(" ");
         for (var token : tokens) {
-            if (token.equals("+")) {
+            try {
+                var number = Integer.parseInt(token);
+                push(number);
+            } catch (NumberFormatException e) {
                 var a = stack.remove(stack.size() - 1);
                 var b = stack.remove(stack.size() - 1);
-                stack.add(a + b);
-            }
-            else if (token.equals("-")) {
-                var a = stack.remove(stack.size() - 1);
-                var b = stack.remove(stack.size() - 1);
-                stack.add(b - a);
-            }
-            else if (token.equals("*")) {
-                var a = stack.remove(stack.size() - 1);
-                var b = stack.remove(stack.size() - 1);
-                stack.add(a * b);
-            }
-            else {
-                push(Integer.parseInt(token));
+                switch (token) {
+                    case "+" -> push(a + b);
+                    case "-" -> push(b - a);
+                    case "*" -> push(a * b);
+                }
             }
         }
     }
