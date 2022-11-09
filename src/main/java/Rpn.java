@@ -11,4 +11,17 @@ public class Rpn {
         stack.add(number);
     }
 
+    public void parse(String input) {
+        var tokens = input.split(" ");
+        for (var token : tokens) {
+            if (token.equals("+")) {
+                var a = stack.remove(stack.size() - 1);
+                var b = stack.remove(stack.size() - 1);
+                stack.add(a + b);
+            } else {
+                push(Integer.parseInt(token));
+            }
+        }
+    }
+
 }
