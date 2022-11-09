@@ -8,4 +8,14 @@ public class test {
         assert rpn.stack.size() == 1;
         assert rpn.stack.get(0) == 1;
     }
+
+    @Test
+    public void push_two_numbers_in_stack() {
+        var rpn = new Rpn();
+        rpn.push(1);
+        rpn.push(2);
+        assert rpn.stack.size() == 2;
+        assert rpn.stack.get(0) == 1;
+        assert rpn.stack.get(1) == 2;
+    }
 }
