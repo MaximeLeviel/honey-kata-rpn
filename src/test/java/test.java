@@ -50,4 +50,12 @@ public class test {
         assert rpn.stack.size() == 1;
         assert rpn.stack.get(0) == -4;
     }
+
+    @Test
+    public void parse_mul() {
+        var rpn = new Rpn();
+        rpn.parse("1 2 *");
+        assert rpn.stack.size() == 1;
+        assert rpn.stack.get(0) == 2;
+    }
 }
