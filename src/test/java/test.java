@@ -18,4 +18,12 @@ public class test {
         assert rpn.stack.get(0) == 1;
         assert rpn.stack.get(1) == 2;
     }
+
+    @Test
+    public void parse() {
+        var rpn = new Rpn();
+        rpn.parse("1 2 +");
+        assert rpn.stack.size() == 1;
+        assert rpn.stack.get(0) == 3;
+    }
 }
