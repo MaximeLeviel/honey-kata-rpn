@@ -42,4 +42,12 @@ public class test {
         assert rpn.stack.size() == 1;
         assert rpn.stack.get(0) == -1;
     }
+
+    @Test
+    public void parse_sub2() {
+        var rpn = new Rpn();
+        rpn.parse("1 2 - 3 -");
+        assert rpn.stack.size() == 1;
+        assert rpn.stack.get(0) == -4;
+    }
 }
