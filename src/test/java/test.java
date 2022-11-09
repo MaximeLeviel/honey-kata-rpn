@@ -20,7 +20,7 @@ public class test {
     }
 
     @Test
-    public void parse() {
+    public void parse_add() {
         var rpn = new Rpn();
         rpn.parse("1 2 +");
         assert rpn.stack.size() == 1;
